@@ -1470,7 +1470,7 @@ end
 
 
 
-rand = tostring(math.random(0,20))
+rand = tostring(math.random(0,10))
 
 local con = API:Connect("https://qwebirc.swiftirc.net/","Proximity_"..rand)--API.Connect = function(this,Host,Nick,Pass)
 
