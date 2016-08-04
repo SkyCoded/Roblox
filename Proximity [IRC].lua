@@ -1476,21 +1476,21 @@ local con = API:Connect("https://qwebirc.swiftirc.net/","Client"..rand)--API.Con
 
 spawn(function() while wait(5) do API:KeepAlive(con) end end)
 
-local c = {API:JoinChannel(con,"#Proximity")}--this,Connection,Channel)
+local c = {API:JoinChannel(con,"#Proximity_IRC")}--this,Connection,Channel)
 
 print("Data", unpack(c))
 
 if not c[1] then error(c[2],2) end
 
-API:MessageReceived(con,"#Proximity",ChatGetter)
+API:MessageReceived(con,"#Proximity_IRC",ChatGetter)
 
-API:UserJoined(con,"#Proximity",ChatGetter)
+API:UserJoined(con,"#Proximity_IRC",ChatGetter)
 
-API:UserLeft(con,"#Proximity",ChatGetter)
+API:UserLeft(con,"#Proximity_IRC",ChatGetter)
 
 local Chat=function(msg,channel,playername)
 					
-					c={API:SendMessage(con,channel and tostring(channel) or "#Proximity",playername..': '..msg)}
+					c={API:SendMessage(con,channel and tostring(channel) or "#Proximity_IRC",playername..': '..msg)}
 					if not c[1] then error(c[2],2) end
 					return "success"
 			end
@@ -1513,17 +1513,17 @@ LeaveChannel=function(channel,reason)
 
 end
 
-function ircprint(msg) Chat(msg,"#Proximity","OUTPUT")end
+function ircprint(msg) Chat(msg,"#Proximity_IRC","OUTPUT")end
 
 coroutine.resume(coroutine.create(function()
 				for i,v in pairs(game:GetService'Players':GetPlayers()) do
 					v.Chatted:connect(function(msg) local t=tostring(v)
-						Chat(tostring(msg),'#Proximity',t)
+						Chat(tostring(msg),'#Proximity_IRC',t)
 					end)
 				end
 				game:GetService'Players'.PlayerAdded:connect(function(p)
 					local r=tostring(p)
-					Chat(p.Name.." has joined.",'#Proximity',r)
+					Chat(p.Name.." has joined.",'#Proximity_IRC',r)
 					SendAll(p.Name.." has joined.",		
 								BrickColor.new("Dark green").Color,
 								Enum.Font.SourceSansBold,
@@ -1538,12 +1538,12 @@ Send(p,
 
 					
 					p.Chatted:connect(function(m) local r=tostring(p)
-					Chat(tostring(m),'#Proximity',r)
+					Chat(tostring(m),'#Proximity_IRC',r)
 					end)
 					end)
 				game:GetService'Players'.PlayerRemoving:connect(function(p)
 					local r=tostring(p)
-					Chat(p.Name.." has left.",'#Proximity',r)
+					Chat(p.Name.." has left.",'#Proximity_IRC',r)
 					SendAll(p.Name.." has left.",		
 								BrickColor.new("Really red").Color,
 								Enum.Font.SourceSansBold,
