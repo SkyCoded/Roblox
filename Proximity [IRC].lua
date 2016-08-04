@@ -1478,7 +1478,7 @@ spawn(function() while wait(5) do API:KeepAlive(con) end end)
 
 local c = {API:JoinChannel(con,"#Proximity_IRC")}--this,Connection,Channel)
 
---print("Data", unpack(c))
+print("Data", unpack(c))
 
 if not c[1] then error(c[2],2) end
 
