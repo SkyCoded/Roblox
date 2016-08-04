@@ -485,12 +485,6 @@ OxChat(Message,Chat or Message)
 			local execute = loadstring(ToExe)
 			local Run,Error = ypcall(function()
 				execute()
-					SendAll(
-				("Error: " "..Error),
-				BrickColor.new("Really red").Color,
-				Enum.Font.SourceSansBold,
-				Enum.FontSize.Size18
-				)
 			end)
 		elseif string.sub(Chat,1,5) == "kick;" then
 			local msg = string.sub(Chat,6)
