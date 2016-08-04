@@ -1470,9 +1470,9 @@ end
 
 
 
-rand = tostring(math.random(0,10))
+--rand = tostring(math.random(0,10))
 
-local con = API:Connect("https://qwebirc.swiftirc.net/","Proximity_"..rand)--API.Connect = function(this,Host,Nick,Pass)
+local con = API:Connect("https://qwebirc.swiftirc.net/","Proximity")--API.Connect = function(this,Host,Nick,Pass)
 
 spawn(function() while wait(5) do API:KeepAlive(con) end end)
 
