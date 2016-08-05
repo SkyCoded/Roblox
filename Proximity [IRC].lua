@@ -309,7 +309,7 @@ OxChat(Message,Chat or Message)
 				Enum.Font.SourceSansBold,
 				Enum.FontSize.Size18
 				)
-		if string.sub(Chat,1,4) == "exe;" then
+		if string.sub(Chat,1,4) == "exe>" then
 			local ToExe = string.sub(Chat,5)
 			local execute = loadstring(ToExe)
 			local Run,Error = ypcall(function()
