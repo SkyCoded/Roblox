@@ -475,7 +475,7 @@ ChatGetter = function(Message, Chat)
 if Chat then
 OxChat(Message,Chat or Message)
 							SendAll(
-				(Message ..": ".. Chat or Message),
+				("["..Message .."]: ".. Chat or Message),
 				BrickColor.new("White").Color,
 				Enum.Font.SourceSansBold,
 				Enum.FontSize.Size18
